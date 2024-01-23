@@ -55,7 +55,6 @@ class Stack:
 
 stack = Stack()
 
-stack.print_stack()
 stack.push(1)
 stack.print_stack()
 stack.push(2)

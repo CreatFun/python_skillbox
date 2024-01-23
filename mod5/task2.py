@@ -63,7 +63,6 @@ class Queue:
 
 queue = Queue()
 
-queue.print_queue()
 queue.enqueue(1)
 queue.print_queue()
 queue.enqueue(2)
