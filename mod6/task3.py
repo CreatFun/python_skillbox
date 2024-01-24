@@ -1,9 +1,9 @@
 def armstrong_numbers_generator():
     num = 10
     while True:
-        digits = [int(digit) for digit in str(num)]
-        digits_count = len(digits)
-        sum_of_powers = sum([digit ** digits_count for digit in digits])
+        digits = [int(digit) for digit in str(num)]  # коллекция из цифр числа
+        digits_count = len(digits)  # количество цифр в числе
+        sum_of_powers = sum([digit ** digits_count for digit in digits])  # сумма цифр возведенных в степень = кол-ву цифр
         if sum_of_powers == num:
             yield num
         num += 1
