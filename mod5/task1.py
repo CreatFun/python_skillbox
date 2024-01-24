@@ -38,7 +38,7 @@ class Stack:
         else:
             return self.head.data
 
-    def print_stack(self):
+    def print(self):
         if not self.is_empty():
             current_element = self.head
             print("HEAD", end=" ")
@@ -56,20 +56,20 @@ class Stack:
 stack = Stack()
 
 stack.push(1)
-stack.print_stack()
+stack.print()
 stack.push(2)
-stack.print_stack()
+stack.print()
 stack.push(3)
-stack.print_stack()
+stack.print()
 stack.push(4)
-stack.print_stack()
+stack.print()
 
 print("Крайний элемент: ", stack.peek())
 
 print("Удален из стека: ", stack.pop())
-stack.print_stack()
+stack.print()
 print("Удален из стека: ", stack.pop())
-stack.print_stack()
+stack.print()
 print("Удален из стека: ", stack.pop())
-stack.print_stack()
+stack.print()
 print("Крайний элемент: ", stack.peek())

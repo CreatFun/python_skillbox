@@ -46,7 +46,7 @@ class Queue:
         else:
             return self.front.data
 
-    def print_queue(self):
+    def print(self):
         if not self.is_empty():
             current_element = self.front
             print("FRONT", end=" ")
@@ -60,24 +60,58 @@ class Queue:
         else:
             raise Exception("Очередь пуста")
 
+    def insert(self, n, val):
+        if self.is_empty():
+            raise Exception("Очередь пуста")
+        else:
+            if not self.is_index_correct(n) or n == 0:
+                raise IndexError("Некорректный индекс")
+            else:
+                count = 0
+                current_element = self.front
+                while count < n - 1:
+                    count += 1
+                    current_element = current_element.next
+                # здесь current_element - элемент с индексом n-1
+                new_node = Node(val)
+                new_node.next = current_element.next
+                current_element.next.previous = new_node
+                current_element.next = new_node
+                new_node.previous = current_element
 
+    def is_index_correct(self, index):
+        if index < 0 or index > self.get_size() - 1 or type(index) is not int:
+            return False
+        return True
+
+    def get_size(self):
+        if self.back is None:
+            return 0
+        count = 1
+        current_element = self.front
+        while current_element.next is not None:
+            count += 1
+            current_element = current_element.next
+        return count
 queue = Queue()
 
 queue.enqueue(1)
-queue.print_queue()
+queue.print()
 queue.enqueue(2)
-queue.print_queue()
+queue.print()
 queue.enqueue(3)
-queue.print_queue()
+queue.print()
 queue.enqueue(4)
-queue.print_queue()
+queue.print()
 
+queue.insert(2, "new")
+queue.print()
 print("Первый элемент в очереди: ", queue.peek())
 
 print("Удален из очереди: ", queue.dequeue())
-queue.print_queue()
+queue.print()
 print("Удален из очереди: ", queue.dequeue())
-queue.print_queue()
+queue.print()
 print("Удален из очереди: ", queue.dequeue())
-queue.print_queue()
+queue.print()
 print("Первый элемент в очереди: ", queue.peek())
